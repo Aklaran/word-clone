@@ -1,6 +1,6 @@
 import React from "react";
 
-function GuessInput({ guess, setGuess, validateGuess }) {
+function GuessInput({ guess, setGuess, validateGuess, isDisabled }) {
   function handleSubmit(event) {
     event.preventDefault();
     validateGuess();
@@ -19,6 +19,7 @@ function GuessInput({ guess, setGuess, validateGuess }) {
         pattern="[A-Z]{5}"
         title="5 letter guess"
         onChange={(event) => setGuess(event.target.value.toUpperCase())}
+        disabled={isDisabled}
       />
     </form>
   );
