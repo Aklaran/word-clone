@@ -6,6 +6,8 @@ import { WORDS } from "../../data";
 import GuessInput from "../GuessInput";
 import GuessHistory from "../GuessHistory";
 
+import { checkGuess } from "../../game-helpers";
+
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
@@ -17,7 +19,8 @@ function Game() {
 
   function validateGuess() {
     console.info({ guess });
-    setGuessList([...guessList, guess]);
+    const validatedGuess = checkGuess(guess, answer);
+    setGuessList([...guessList, validatedGuess]);
     setGuess("");
   }
 

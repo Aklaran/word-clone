@@ -8,8 +8,11 @@ function Guess({ children }) {
   return (
     <p className="guess">
       {range(5).map((index) => (
-        <span key={index} className="cell">
-          {children && children[index]}
+        <span
+          key={index}
+          className={`cell ${children && children[index].status}`}
+        >
+          {children && children[index].letter}
         </span>
       ))}
     </p>
